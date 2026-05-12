@@ -157,8 +157,8 @@
 
     .survey-embed iframe {
       display: block;
-      width: 100% !important;
-      height: 100% !important;
+      width: 100%;
+      height: 100%;
       border: none;
     }
 
@@ -205,16 +205,11 @@
       <p>Answer <strong>3 quick questions</strong> and we'll give you<br>free access to one of our Perfect Boot Title Generator.</p>
     </div>
 
-    <!-- Typeform survey (SDK embed) -->
+    <!-- Typeform survey -->
     <div class="survey-section">
-      <div id="tf-embed"
-           class="survey-embed"
-           data-tf-live="eoCgW6Rr"
-           data-tf-hide-headers
-           data-tf-hide-footers
-           data-tf-inline-on-mobile
-           data-tf-medium="snippet"
-           data-tf-hidden="email=xxxxx"></div>
+      <div class="survey-embed">
+        <iframe id="typeform-embed" title="Sneak Peek Form" allow="camera; microphone; autoplay; encrypted-media;"></iframe>
+      </div>
     </div>
 
     <footer>
@@ -231,8 +226,9 @@
       try { return decodeURIComponent(match[1]); } catch (e) { return match[1]; }
     }
     var email = readEmail(window.location.hash) || readEmail(window.location.search) || 'xxxxx';
-    document.getElementById('tf-embed').setAttribute('data-tf-hidden', 'email=' + email);
+    var typeformId = 'eoCgW6Rr';
+    var src = 'https://form.typeform.com/to/' + typeformId + '#email=' + encodeURIComponent(email);
+    document.getElementById('typeform-embed').src = src;
   </script>
-  <script src="//embed.typeform.com/next/embed.js" async></script>
 </body>
 </html>
