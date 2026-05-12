@@ -188,95 +188,26 @@
       font-weight: 600;
     }
 
-    /* ─── Kit form wrapper ─── */
-    .form-section {
+    /* ─── Survey embed ─── */
+    .survey-section {
       margin-top: 8px;
     }
 
-    .form-section .form-label {
-      font-family: var(--font-sans);
-      font-weight: 700;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--butter-500);
-      margin-bottom: 12px;
-    }
-
-    .form-section h3 {
-      font-family: var(--font-display);
-      font-weight: 400;
-      font-size: clamp(28px, 4vw, 40px);
-      line-height: 0.92;
-      text-transform: uppercase;
-      letter-spacing: -0.005em;
-      color: var(--paper-100);
-      margin-bottom: 20px;
-    }
-
-    /* Override Kit form to fit the SPS visual system */
-    .form-wrap .formkit-form[data-uid="77c222d114"] {
-      max-width: 100%;
-    }
-    .form-wrap .formkit-form[data-uid="77c222d114"] [data-style="clean"] {
-      padding: 0 !important;
-      padding-top: 0 !important;
-    }
-    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-input {
-      background: var(--ink-900) !important;
-      color: var(--paper-100) !important;
-      border: 1px solid var(--ink-600) !important;
-      border-radius: 3px !important;
-      padding: 16px 18px !important;
-      font-family: var(--font-sans) !important;
-      font-size: 16px !important;
-      font-weight: 400 !important;
-      transition: border-color 180ms cubic-bezier(0.16, 0.84, 0.36, 1);
-    }
-    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-input:focus {
-      border-color: var(--butter-500) !important;
-      outline: 2px solid var(--butter-500);
-      outline-offset: 2px;
-    }
-    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-input::placeholder {
-      color: var(--ink-300) !important;
-      opacity: 1;
-    }
-    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-submit {
-      background-color: var(--butter-500) !important;
-      color: var(--ink-900) !important;
-      border-radius: 3px !important;
-      font-family: var(--font-sans) !important;
-      font-weight: 700 !important;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      box-shadow: 6px 6px 0 var(--ink-950);
-      transition: background-color 180ms cubic-bezier(0.16, 0.84, 0.36, 1),
-                  transform 120ms cubic-bezier(0.16, 0.84, 0.36, 1),
-                  box-shadow 120ms cubic-bezier(0.16, 0.84, 0.36, 1);
-    }
-    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-submit:hover {
-      background-color: var(--butter-400) !important;
-    }
-    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-submit:hover > span {
-      background-color: transparent !important;
-    }
-    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-submit:active {
-      transform: translate(2px, 2px);
-      box-shadow: 4px 4px 0 var(--ink-950);
-    }
-    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-submit > span {
-      padding: 16px 28px !important;
-      font-size: 14px !important;
-    }
-    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-powered-by-convertkit-container {
-      margin-top: 8px;
-    }
-    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-alert-error {
-      background: rgba(197, 82, 62, 0.12);
-      border-color: var(--rust-500);
-      color: var(--paper-100);
+    .survey-embed {
+      width: 100%;
+      background: var(--ink-800);
+      border: 1px solid var(--ink-700);
       border-radius: 3px;
+      height: 560px;
+      overflow: hidden;
+      box-shadow: var(--shadow-hard);
+    }
+
+    .survey-embed iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     /* ─── Footer ─── */
@@ -305,7 +236,6 @@
       h1.display { font-size: clamp(40px, 14vw, 64px); }
     }
   </style>
-  <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
 </head>
 <body>
   <div class="container">
@@ -334,28 +264,10 @@
       <p>Answer <strong>3 quick questions</strong> and we'll give you<br>free access to one of our Perfect Boot Title Generator.</p>
     </div>
 
-    <!-- Kit form -->
-    <div class="form-section">
-      <div class="form-label">Join the waitlist</div>
-      <h3>Save your seat.</h3>
-      <div class="form-wrap">
-        <form action="https://app.kit.com/forms/9431878/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9431878" data-uid="77c222d114" data-format="inline" data-version="5" data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;redirect&quot;,&quot;success_message&quot;:&quot;Success! Now check your email to confirm your subscription.&quot;,&quot;redirect_url&quot;:&quot;https://claude-code-marketing-thank-you.vercel.app&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;fathom&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null,&quot;sparkloop&quot;:null,&quot;googletagmanager&quot;:null},&quot;modal&quot;:{&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;powered_by&quot;:{&quot;show&quot;:true,&quot;url&quot;:&quot;https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:&quot;bottom_right&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;sticky_bar&quot;:{&quot;display_in&quot;:&quot;top&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15}},&quot;version&quot;:&quot;5&quot;}" min-width="400 500 600 700 800">
-          <div data-style="clean">
-            <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-            <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
-              <div class="formkit-field">
-                <input class="formkit-input" name="email_address" aria-label="Email Address" placeholder="you@example.com" required="" type="email">
-              </div>
-              <button data-element="submit" class="formkit-submit formkit-submit">
-                <div class="formkit-spinner"><div></div><div></div><div></div></div>
-                <span>Join the Self-Publishing Studio Waitlist</span>
-              </button>
-            </div>
-            <div class="formkit-powered-by-convertkit-container">
-              <a href="https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic" data-element="powered-by" class="formkit-powered-by-convertkit" data-variant="dark" target="_blank" rel="nofollow noopener">Built with Kit</a>
-            </div>
-          </div>
-        </form>
+    <!-- Typeform survey -->
+    <div class="survey-section">
+      <div class="survey-embed">
+        <iframe id="typeform-embed" title="Sneak Peek Form" allow="camera; microphone; autoplay; encrypted-media;"></iframe>
       </div>
     </div>
 
@@ -372,11 +284,10 @@
       if (!match) return '';
       try { return decodeURIComponent(match[1]); } catch (e) { return match[1]; }
     }
-    var email = readEmail(window.location.hash) || readEmail(window.location.search) || '';
-    if (email) {
-      var input = document.querySelector('.formkit-form[data-uid="77c222d114"] input[name="email_address"]');
-      if (input) input.value = email;
-    }
+    var email = readEmail(window.location.hash) || readEmail(window.location.search) || 'xxxxx';
+    var typeformId = 'e2OLUI6U';
+    var src = 'https://form.typeform.com/to/' + typeformId + '#email=' + encodeURIComponent(email);
+    document.getElementById('typeform-embed').src = src;
   </script>
 </body>
 </html>
