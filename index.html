@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're On The Waitlist | Self-Publishing Studio</title>
+  <meta name="description" content="You're on the waitlist for the Self-Publishing Studio. We'll be in touch when enrollment opens." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <style>
+    /* ── SPS design tokens ── */
+    :root {
+      --ink-950: #08111F;
+      --ink-900: #0C1929;
+      --ink-800: #142539;
+      --ink-700: #1E3550;
+      --ink-600: #2A4566;
+      --ink-500: #3E5C82;
+      --ink-300: #8AA0C0;
+      --ink-200: #B5C4D9;
+      --butter-700: #B8A648;
+      --butter-600: #D8C25A;
+      --butter-500: #EFE183;
+      --butter-400: #F4E89A;
+      --paper-100: #FBF7EC;
+      --paper-200: #F5EEDA;
+      --rust-500: #B8633A;
+
+      --font-display: "Anton", "Bebas Neue", Impact, system-ui, sans-serif;
+      --font-sans:    "Inter", system-ui, -apple-system, sans-serif;
+      --font-serif:   "Newsreader", "Iowan Old Style", Georgia, serif;
+
+      --shadow-hard: 8px 8px 0 var(--ink-950);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--ink-900); }
+    ::selection { background: var(--butter-500); color: var(--ink-900); }
+
+    body {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      background-color: var(--ink-900);
+      color: var(--paper-100);
+      min-height: 100vh;
+      padding: 64px 20px 96px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      line-height: 1.5;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Faint book-spine texture via repeating linear gradient.
+       Stand-in for the brand's book-pattern.svg motif. */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        repeating-linear-gradient(
+          90deg,
+          rgba(30, 53, 80, 0.0) 0px,
+          rgba(30, 53, 80, 0.0) 18px,
+          rgba(30, 53, 80, 0.35) 18px,
+          rgba(30, 53, 80, 0.35) 20px,
+          rgba(30, 53, 80, 0.0) 20px,
+          rgba(30, 53, 80, 0.0) 44px,
+          rgba(30, 53, 80, 0.22) 44px,
+          rgba(30, 53, 80, 0.22) 47px,
+          rgba(30, 53, 80, 0.0) 47px,
+          rgba(30, 53, 80, 0.0) 80px
+        );
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.0) 70%);
+      -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.0) 70%);
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      animation: fadeUp 0.6s cubic-bezier(0.16, 0.84, 0.36, 1);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── Eyebrow / micro-cap label ─── */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--butter-500);
+      margin-bottom: 28px;
+    }
+
+    .eyebrow-dot {
+      width: 8px; height: 8px;
+      background: var(--butter-500);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+
+    /* ─── Display headline ─── */
+    h1.display {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(48px, 9vw, 96px);
+      line-height: 0.88;
+      letter-spacing: -0.005em;
+      text-transform: uppercase;
+      color: var(--paper-100);
+      margin-bottom: 20px;
+    }
+
+    h1.display .accent {
+      color: var(--butter-500);
+    }
+
+    .lede {
+      font-family: var(--font-serif);
+      font-size: clamp(18px, 2.4vw, 22px);
+      line-height: 1.55;
+      color: var(--paper-200);
+      margin-bottom: 48px;
+      max-width: 560px;
+    }
+
+    .lede em { color: var(--butter-500); font-style: italic; }
+
+    /* ─── Sneak-peek card ─── */
+    .card {
+      background: var(--ink-800);
+      border: 1px solid var(--ink-700);
+      border-radius: 3px;
+      padding: 32px 32px 28px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-hard);
+    }
+
+    .card-eyebrow {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--butter-500);
+      margin-bottom: 14px;
+    }
+
+    .card h2 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(28px, 5vw, 44px);
+      line-height: 0.92;
+      letter-spacing: -0.005em;
+      text-transform: uppercase;
+      color: var(--paper-100);
+      margin-bottom: 16px;
+    }
+
+    .card p {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--paper-200);
+    }
+
+    .card p strong {
+      color: var(--butter-500);
+      font-weight: 600;
+    }
+
+    /* ─── Kit form wrapper ─── */
+    .form-section {
+      margin-top: 8px;
+    }
+
+    .form-section .form-label {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--butter-500);
+      margin-bottom: 12px;
+    }
+
+    .form-section h3 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 0.92;
+      text-transform: uppercase;
+      letter-spacing: -0.005em;
+      color: var(--paper-100);
+      margin-bottom: 20px;
+    }
+
+    /* Override Kit form to fit the SPS visual system */
+    .form-wrap .formkit-form[data-uid="77c222d114"] {
+      max-width: 100%;
+    }
+    .form-wrap .formkit-form[data-uid="77c222d114"] [data-style="clean"] {
+      padding: 0 !important;
+      padding-top: 0 !important;
+    }
+    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-input {
+      background: var(--ink-900) !important;
+      color: var(--paper-100) !important;
+      border: 1px solid var(--ink-600) !important;
+      border-radius: 3px !important;
+      padding: 16px 18px !important;
+      font-family: var(--font-sans) !important;
+      font-size: 16px !important;
+      font-weight: 400 !important;
+      transition: border-color 180ms cubic-bezier(0.16, 0.84, 0.36, 1);
+    }
+    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-input:focus {
+      border-color: var(--butter-500) !important;
+      outline: 2px solid var(--butter-500);
+      outline-offset: 2px;
+    }
+    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-input::placeholder {
+      color: var(--ink-300) !important;
+      opacity: 1;
+    }
+    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-submit {
+      background-color: var(--butter-500) !important;
+      color: var(--ink-900) !important;
+      border-radius: 3px !important;
+      font-family: var(--font-sans) !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 6px 6px 0 var(--ink-950);
+      transition: background-color 180ms cubic-bezier(0.16, 0.84, 0.36, 1),
+                  transform 120ms cubic-bezier(0.16, 0.84, 0.36, 1),
+                  box-shadow 120ms cubic-bezier(0.16, 0.84, 0.36, 1);
+    }
+    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-submit:hover {
+      background-color: var(--butter-400) !important;
+    }
+    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-submit:hover > span {
+      background-color: transparent !important;
+    }
+    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-submit:active {
+      transform: translate(2px, 2px);
+      box-shadow: 4px 4px 0 var(--ink-950);
+    }
+    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-submit > span {
+      padding: 16px 28px !important;
+      font-size: 14px !important;
+    }
+    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-powered-by-convertkit-container {
+      margin-top: 8px;
+    }
+    .form-wrap .formkit-form[data-uid="77c222d114"] .formkit-alert-error {
+      background: rgba(197, 82, 62, 0.12);
+      border-color: var(--rust-500);
+      color: var(--paper-100);
+      border-radius: 3px;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      margin-top: 56px;
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--ink-500);
+    }
+
+    footer .wordmark {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--butter-500);
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 40px 18px 72px; }
+      .card { padding: 26px 22px; }
+      h1.display { font-size: clamp(40px, 14vw, 64px); }
+    }
+  </style>
+  <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Eyebrow -->
+    <div class="eyebrow">
+      <span class="eyebrow-dot"></span>
+      A digital course by Dickie Bush &amp; Nicolas Cole
+    </div>
+
+    <!-- Headline -->
+    <h1 class="display">
+      Ahoy, captain.<br>
+      You're <span class="accent">officially on the waitlist.</span>
+    </h1>
+
+    <!-- Lede -->
+    <p class="lede">
+      We'll send word the moment the studio doors open. In the meantime, here's a small gift to keep you sailing.
+    </p>
+
+    <!-- Sneak-peek card -->
+    <div class="card">
+      <div class="card-eyebrow">In the meantime</div>
+      <h2>Want a sneak peek?</h2>
+      <p>Answer <strong>3 quick questions</strong> and we'll give you<br>free access to one of our Perfect Boot Title Generator.</p>
+    </div>
+
+    <!-- Kit form -->
+    <div class="form-section">
+      <div class="form-label">Join the waitlist</div>
+      <h3>Save your seat.</h3>
+      <div class="form-wrap">
+        <form action="https://app.kit.com/forms/9431878/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9431878" data-uid="77c222d114" data-format="inline" data-version="5" data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;redirect&quot;,&quot;success_message&quot;:&quot;Success! Now check your email to confirm your subscription.&quot;,&quot;redirect_url&quot;:&quot;https://claude-code-marketing-thank-you.vercel.app&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;fathom&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null,&quot;sparkloop&quot;:null,&quot;googletagmanager&quot;:null},&quot;modal&quot;:{&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;powered_by&quot;:{&quot;show&quot;:true,&quot;url&quot;:&quot;https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:&quot;bottom_right&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;sticky_bar&quot;:{&quot;display_in&quot;:&quot;top&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15}},&quot;version&quot;:&quot;5&quot;}" min-width="400 500 600 700 800">
+          <div data-style="clean">
+            <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+            <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
+              <div class="formkit-field">
+                <input class="formkit-input" name="email_address" aria-label="Email Address" placeholder="you@example.com" required="" type="email">
+              </div>
+              <button data-element="submit" class="formkit-submit formkit-submit">
+                <div class="formkit-spinner"><div></div><div></div><div></div></div>
+                <span>Join the Self-Publishing Studio Waitlist</span>
+              </button>
+            </div>
+            <div class="formkit-powered-by-convertkit-container">
+              <a href="https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic" data-element="powered-by" class="formkit-powered-by-convertkit" data-variant="dark" target="_blank" rel="nofollow noopener">Built with Kit</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <div class="wordmark">Self-Publishing Studio</div>
+      &copy; 2026 Self-Publishing Studio. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    // Parse email manually so literal "+" survives (URLSearchParams would turn it into a space)
+    function readEmail(source) {
+      var match = source.match(/(?:^|[?&#])email=([^&]*)/);
+      if (!match) return '';
+      try { return decodeURIComponent(match[1]); } catch (e) { return match[1]; }
+    }
+    var email = readEmail(window.location.hash) || readEmail(window.location.search) || '';
+    if (email) {
+      var input = document.querySelector('.formkit-form[data-uid="77c222d114"] input[name="email_address"]');
+      if (input) input.value = email;
+    }
+  </script>
+</body>
+</html>
