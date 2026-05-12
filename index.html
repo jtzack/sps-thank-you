@@ -44,7 +44,7 @@
       background-color: var(--ink-900);
       color: var(--paper-100);
       min-height: 100vh;
-      padding: 64px 20px 96px;
+      padding: 36px 20px 72px;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
       line-height: 1.5;
@@ -92,38 +92,12 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ─── Eyebrow / micro-cap label ─── */
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-sans);
-      font-weight: 700;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--butter-500);
-      margin-bottom: 28px;
-    }
-
-    .eyebrow-dot {
-      width: 8px; height: 8px;
-      background: var(--butter-500);
-      border-radius: 50%;
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.45; }
-    }
-
     /* ─── Display headline ─── */
     h1.display {
       font-family: var(--font-display);
       font-weight: 400;
-      font-size: clamp(48px, 9vw, 96px);
-      line-height: 0.88;
+      font-size: clamp(32px, 5.5vw, 52px);
+      line-height: 0.92;
       letter-spacing: -0.005em;
       text-transform: uppercase;
       color: var(--paper-100);
@@ -134,24 +108,13 @@
       color: var(--butter-500);
     }
 
-    .lede {
-      font-family: var(--font-serif);
-      font-size: clamp(18px, 2.4vw, 22px);
-      line-height: 1.55;
-      color: var(--paper-200);
-      margin-bottom: 48px;
-      max-width: 560px;
-    }
-
-    .lede em { color: var(--butter-500); font-style: italic; }
-
     /* ─── Sneak-peek card ─── */
     .card {
       background: var(--ink-800);
       border: 1px solid var(--ink-700);
       border-radius: 3px;
-      padding: 32px 32px 28px;
-      margin-bottom: 36px;
+      padding: 22px 24px 20px;
+      margin-bottom: 24px;
       box-shadow: var(--shadow-hard);
     }
 
@@ -162,24 +125,24 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--butter-500);
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
     .card h2 {
       font-family: var(--font-display);
       font-weight: 400;
-      font-size: clamp(28px, 5vw, 44px);
-      line-height: 0.92;
+      font-size: clamp(22px, 3.5vw, 30px);
+      line-height: 0.95;
       letter-spacing: -0.005em;
       text-transform: uppercase;
       color: var(--paper-100);
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .card p {
       font-family: var(--font-serif);
-      font-size: 17px;
-      line-height: 1.6;
+      font-size: 15px;
+      line-height: 1.55;
       color: var(--paper-200);
     }
 
@@ -198,7 +161,7 @@
       background: var(--ink-800);
       border: 1px solid var(--ink-700);
       border-radius: 3px;
-      height: 560px;
+      height: 480px;
       overflow: hidden;
       box-shadow: var(--shadow-hard);
     }
@@ -212,7 +175,7 @@
 
     /* ─── Footer ─── */
     footer {
-      margin-top: 56px;
+      margin-top: 32px;
       text-align: center;
       font-family: var(--font-sans);
       font-size: 12px;
@@ -231,31 +194,20 @@
     }
 
     @media (max-width: 640px) {
-      body { padding: 40px 18px 72px; }
-      .card { padding: 26px 22px; }
-      h1.display { font-size: clamp(40px, 14vw, 64px); }
+      body { padding: 28px 18px 56px; }
+      .card { padding: 20px 20px 18px; }
+      h1.display { font-size: clamp(28px, 8vw, 40px); }
+      .survey-embed { height: 460px; }
     }
   </style>
 </head>
 <body>
   <div class="container">
 
-    <!-- Eyebrow -->
-    <div class="eyebrow">
-      <span class="eyebrow-dot"></span>
-      A digital course by Dickie Bush &amp; Nicolas Cole
-    </div>
-
     <!-- Headline -->
     <h1 class="display">
-      Ahoy, captain.<br>
-      You're <span class="accent">officially on the waitlist.</span>
+      You're <span class="accent">on the waitlist.</span>
     </h1>
-
-    <!-- Lede -->
-    <p class="lede">
-      We'll send word the moment the studio doors open. In the meantime, here's a small gift to keep you sailing.
-    </p>
 
     <!-- Sneak-peek card -->
     <div class="card">
